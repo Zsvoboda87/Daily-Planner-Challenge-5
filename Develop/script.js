@@ -1,22 +1,30 @@
-// function to check time and change background color
-var auditTime = function () {
-    var time = moment()
-};
+var ohioTime = document.querySelector("#currentDay");
+var currentTime =moment();
 
-var addTasks
+ohioTime.textContent = currentTime.format("MMM DD, YYYY ")
 
-// task text was clicked
+// change text in timeblock
 $(".container").on("click", ".task", function() {
-    // get current text of p element
+    //get the text
     var text = $(this)
       .text()
       .trim();
   
     // replace p element with a new textarea
-    var textInput = $("<textarea>").addClass("col-10").val(text);
+    var textInput = $("<textarea>").addClass("time-block-9 col-10").val(text);
     $(this).replaceWith(textInput);
   
   
-    // auto focus new element
-    textInput.trigger("focus");
+    // // auto focus new element
+    // textInput.trigger("focus");
   });
+
+
+
+// Save text in time blocks
+  $(".time-block-9").on("click", ".saveBtn", function() {
+    //get the textblock text
+   var text9 = $(".time-block-9").find("textarea").text().trim()
+    console.log(text9)
+  });
+

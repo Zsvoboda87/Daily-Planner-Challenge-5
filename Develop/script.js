@@ -2,21 +2,23 @@ var ohioTime = document.querySelector("#currentDay");
 var currentTime =moment();
 ohioTime.textContent = currentTime.format("MMM DD, YYYY ")
 
+
 nineAM ={}
 tenAM ={}
+elevenAM ={}
+TwelveAM ={}
 
-hourObject = {
-nine:[],
-ten:[],
-eleven:[],
-twelve: [],
-thirteen: []
-}
 
 var loadTimeblocks = function() {
   nineAM1 = JSON.parse(localStorage.getItem("nineAM"))
   if (!nineAM1) {nineAM1 =[]};
   $("#niner").html(nineAM1.text)
+  tenAM1 = JSON.parse(localStorage.getItem("tenAM"))
+  if (!tenAM1) {tenAM1 =[]};
+  $("#tener").html(tenAM1.text)
+
+
+
 }
 loadTimeblocks();
 
@@ -56,7 +58,7 @@ $(".time-block-10").on("click", "p", function() {
 $(".time-block-10").on("blur", "textarea", function() {
 var text = $(this).val().trim();
 var taskP = $("<p>").addClass("task col-10").text(text);
-hourObject.ten.text = text;
+tenAM.text = text;
 $(this).replaceWith(taskP);
 });
 
@@ -64,15 +66,15 @@ $(this).replaceWith(taskP);
 // Save text in time blocks
 $(".time-block-10").on("click", ".saveBtn", function() {
   //get the textblock text
- console.log(hourObject.ten)
+  localStorage.setItem("tenAM", JSON.stringify(tenAM));
 });
 
 
 
 
-
 var timeCheck = function() {
-  $("#time-block-9").addClass("past")
+  // var time = moment().set("hour", 18)
 
+  if (moment().isAfter('9', 'hour')) {$("#time-block-9").removeClass("future").addClass("past")}
 };
 timeCheck();

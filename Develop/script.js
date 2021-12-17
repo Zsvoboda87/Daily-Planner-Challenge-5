@@ -67,16 +67,12 @@ $(".time-block-10").on("click", ".saveBtn", function() {
  console.log(hourObject.ten)
 });
 
+
+
+
+
 var timeCheck = function() {
-  
-
-  if (moment().isAfter(9)) {
-    $(taskEl).addClass();
-
-
-  }
-  else if (Math.abs(moment().diff(time, "days")) <= 2) {
-    $(taskEl).addClass("list-group-item-warning");
-  }
+  $("#time-block-9").addClass("past")
 
 };
+timeCheck();

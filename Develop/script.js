@@ -2,12 +2,15 @@ var ohioTime = document.querySelector("#currentDay");
 var currentTime =moment();
 ohioTime.textContent = currentTime.format("MMM DD, YYYY ")
 
-
 nineAM ={}
 tenAM ={}
 elevenAM ={}
 twelveAM ={}
-
+thirteenAM ={}
+fourteenAM ={}
+fifteenAM ={}
+sixteenAM ={}
+seventeenAM ={}
 
 var loadTimeblocks = function() {
   nineAM1 = JSON.parse(localStorage.getItem("nineAM"))
@@ -25,6 +28,26 @@ var loadTimeblocks = function() {
   twelveAM1 = JSON.parse(localStorage.getItem("twelveAM"))
   if (!twelveAM1) {twelveAM1 =[]};
   $("#twelver").html(twelveAM1.text)
+
+  thirteenAM1 = JSON.parse(localStorage.getItem("thirteenAM"))
+  if (!thirteenAM1) {thirteenAM1 =[]};
+  $("#thirteener").html(thirteenAM1.text)
+
+  fourteenAM1 = JSON.parse(localStorage.getItem("fourteenAM"))
+  if (!fourteenAM1) {fourteenAM1 =[]};
+  $("#fourteener").html(fourteenAM1.text)
+  
+  fifteenAM1 = JSON.parse(localStorage.getItem("fifteenAM"))
+  if (!fifteenAM1) {fifteenAM1 =[]};
+  $("#fifteener").html(fifteenAM1.text)
+
+  sixteenAM1 = JSON.parse(localStorage.getItem("sixteenAM"))
+  if (!sixteenAM1) {sixteenAM1 =[]};
+  $("#sixteener").html(sixteenAM1.text)
+
+  seventeenAM1 = JSON.parse(localStorage.getItem("seventeenAM"))
+  if (!seventeenAM1) {seventeenAM1 =[]};
+  $("#seventeener").html(seventeenAM1.text)  
 }
 loadTimeblocks();
 
@@ -36,20 +59,16 @@ $(".time-block-9").on("click", "p", function() {
     $(this).replaceWith(textInput);    
     textInput.trigger("focus");
 });
-
 $(".time-block-9").on("blur", "textarea", function() {
   var text = $(this).val().trim();
   var taskP = $("<p>").addClass("task col-10").text(text);
   nineAM.text = text;
 $(this).replaceWith(taskP);
 });
-
 $(".time-block-9").on("click", ".saveBtn", function() {
   //get the textblock text
   localStorage.setItem("nineAM", JSON.stringify(nineAM));
 });
-
-
 
 // Time Block 10
 $(".time-block-10").on("click", "p", function() {
@@ -59,14 +78,12 @@ $(".time-block-10").on("click", "p", function() {
   $(this).replaceWith(textInput);    
   textInput.trigger("focus");
 });
-
 $(".time-block-10").on("blur", "textarea", function() {
 var text = $(this).val().trim();
 var taskP = $("<p>").addClass("task col-10").text(text);
 tenAM.text = text;
 $(this).replaceWith(taskP);
 }); 
-
 $(".time-block-10").on("click", ".saveBtn", function() {
   //get the textblock text
   localStorage.setItem("tenAM", JSON.stringify(tenAM));
@@ -80,14 +97,12 @@ $(".time-block-11").on("click", "p", function() {
   $(this).replaceWith(textInput);    
   textInput.trigger("focus");
 });
-
 $(".time-block-11").on("blur", "textarea", function() {
 var text = $(this).val().trim();
 var taskP = $("<p>").addClass("task col-10").text(text);
 elevenAM.text = text;
 $(this).replaceWith(taskP);
 }); 
-
 $(".time-block-11").on("click", ".saveBtn", function() {
   //get the textblock text
   localStorage.setItem("elevenAM", JSON.stringify(elevenAM));
@@ -102,21 +117,112 @@ $(".time-block-12").on("click", "p", function() {
   $(this).replaceWith(textInput);    
   textInput.trigger("focus");
 });
-
 $(".time-block-12").on("blur", "textarea", function() {
 var text = $(this).val().trim();
 var taskP = $("<p>").addClass("task col-10").text(text);
 twelveAM.text = text;
 $(this).replaceWith(taskP);
 }); 
-
 $(".time-block-12").on("click", ".saveBtn", function() {
   //get the textblock text
   localStorage.setItem("twelveAM", JSON.stringify(twelveAM));
 });
 
+// Time Block 13
+$(".time-block-13").on("click", "p", function() {
 
-var timeArr = [9,10,11,12]
+  var text = $(this).text().trim();
+  var textInput = $("<textarea>").addClass("time-block-13 col-10").val(text);
+  $(this).replaceWith(textInput);    
+  textInput.trigger("focus");
+});
+$(".time-block-13").on("blur", "textarea", function() {
+var text = $(this).val().trim();
+var taskP = $("<p>").addClass("task col-10").text(text);
+thirteenAM.text = text;
+$(this).replaceWith(taskP);
+}); 
+$(".time-block-13").on("click", ".saveBtn", function() {
+  //get the textblock text
+  localStorage.setItem("thirteenAM", JSON.stringify(thirteenAM));
+});
+
+// Time Block 14
+$(".time-block-14").on("click", "p", function() {
+
+  var text = $(this).text().trim();
+  var textInput = $("<textarea>").addClass("time-block-14 col-10").val(text);
+  $(this).replaceWith(textInput);    
+  textInput.trigger("focus");
+});
+$(".time-block-14").on("blur", "textarea", function() {
+var text = $(this).val().trim();
+var taskP = $("<p>").addClass("task col-10").text(text);
+fourteenAM.text = text;
+$(this).replaceWith(taskP);
+}); 
+$(".time-block-14").on("click", ".saveBtn", function() {
+  //get the textblock text
+  localStorage.setItem("fourteenAM", JSON.stringify(fourteenAM));
+});
+
+// Time Block 15
+$(".time-block-15").on("click", "p", function() {
+
+  var text = $(this).text().trim();
+  var textInput = $("<textarea>").addClass("time-block-15 col-10").val(text);
+  $(this).replaceWith(textInput);    
+  textInput.trigger("focus");
+});
+$(".time-block-15").on("blur", "textarea", function() {
+var text = $(this).val().trim();
+var taskP = $("<p>").addClass("task col-10").text(text);
+fifteenAM.text = text;
+$(this).replaceWith(taskP);
+}); 
+$(".time-block-15").on("click", ".saveBtn", function() {
+  //get the textblock text
+  localStorage.setItem("fifteenAM", JSON.stringify(fifteenAM));
+});
+
+// Time Block 16
+$(".time-block-16").on("click", "p", function() {
+
+  var text = $(this).text().trim();
+  var textInput = $("<textarea>").addClass("time-block-16 col-10").val(text);
+  $(this).replaceWith(textInput);    
+  textInput.trigger("focus");
+});
+$(".time-block-16").on("blur", "textarea", function() {
+var text = $(this).val().trim();
+var taskP = $("<p>").addClass("task col-10").text(text);
+sixteenAM.text = text;
+$(this).replaceWith(taskP);
+}); 
+$(".time-block-16").on("click", ".saveBtn", function() {
+  //get the textblock text
+  localStorage.setItem("sixteenAM", JSON.stringify(sixteenAM));
+});
+
+// Time Block 17
+$(".time-block-17").on("click", "p", function() {
+  var text = $(this).text().trim();
+  var textInput = $("<textarea>").addClass("time-block-17 col-10").val(text);
+  $(this).replaceWith(textInput);    
+  textInput.trigger("focus");
+});
+$(".time-block-17").on("blur", "textarea", function() {
+var text = $(this).val().trim();
+var taskP = $("<p>").addClass("task col-10").text(text);
+seventeenAM.text = text;
+$(this).replaceWith(taskP);
+}); 
+$(".time-block-17").on("click", ".saveBtn", function() {
+  //get the textblock text
+  localStorage.setItem("seventeenAM", JSON.stringify(seventeenAM));
+});
+
+var timeArr = [9,10,11,12,13,14,15,16,17]
 
 var timeCheck = function() {
   var currentHour = moment().format('HH')
@@ -129,27 +235,7 @@ var timeCheck = function() {
       $("#time-block-"+timeArr[i]).removeClass("future past").addClass("present")
     }
   }
-
-
-  // if (moment().isSame('10', 'hour')) {$("#time-block-9").removeClass("future").addClass("present")}
-  // if (moment().isSame('11', 'hour')) {$("#time-block-10").removeClass("future").addClass("present")}
-  // if (moment().isSame('12', 'hour')) {$("#time-block-11").removeClass("future").addClass("present")}
-  // if (moment().isSame('13', 'hour')) {$("#time-block-12").removeClass("future").addClass("present")}
-
-  // if (moment().isBetween('10', '11', 'hour')) {$("#time-block-9").removeClass("future").addClass("present")}
-  // if (moment().isBetween('11', '10', 'hour')) {$("#time-block-10").removeClass("future").addClass("present")}
-  // if (moment().isBetween('11', '13', 'hour')) {$("#time-block-11").removeClass("future").addClass("present")}
-  // if (moment().isBetween('13', '14', 'hour')) {$("#time-block-12").removeClass("future").addClass("present")}
-
-
-
-
-  // if (moment().isAfter('10', 'hour')) {$("#time-block-9").removeClass("future present").addClass("past")}
-  // if (moment().isAfter('11', 'hour')) {$("#time-block-10").removeClass("future present").addClass("past")}
-  // if (moment().isAfter('12', 'hour')) {$("#time-block-11").removeClass("future present").addClass("past")}
-  // if (moment().isAfter('13', 'hour')) {$("#time-block-12").removeClass("future present").addClass("past")}
-
-
-
 };
-timeCheck();
+// timeCheck();
+
+setInterval(timeCheck(), 1800000);
